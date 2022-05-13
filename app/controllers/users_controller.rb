@@ -20,9 +20,22 @@ class UsersController < ApplicationController
     
     a_new_user.save
     #redirect_to("/users/")
+    redirect_to("/users/" + a_new_user.username)
     
 
-    render({ :template => "user_templates/add_user.html.erb" })
+    
 
+  end
+  def modify
+    
+    user_id = params.fetch("update_id")
+    matching_users = User.where({ :id => user_id})
+    the_user = matching_users.at(0)
+
+    input_user = params.fetch("input_username")
+    the_user.username = input_user
+    the_user.save
+    
+    redirect_to("/users/" + the_user.username)
   end
 end

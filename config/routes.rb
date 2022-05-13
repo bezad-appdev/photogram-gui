@@ -8,6 +8,7 @@ get("/", {:controller => "users", :action => "index" })
 get("/insert_photo", {:controller => "photos", :action => "create" })
 get("/update_photo/:modify_id", {:controller => "photos", :action => "update" })
 get("/insert_user_record", {:controller => "users", :action => "add_user" })
+get("/update_user/:update_id", {:controller => "users", :action => "modify" })
 
 
 end
